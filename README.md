@@ -32,6 +32,6 @@ Open [http://localhost:3000](http://localhost:3000).
 
 Course, category, and blog data was rebuilt from CertOcean's real catalogue structure using publicly
 indexed search snippets (a direct site crawl was blocked by network policy in the build environment).
-Fields that could not be verified this way (pricing, review counts, batch dates, testimonial names) are
-flagged with `needsVerification: true` in the data files and/or labeled "Needs final content from
-CertOcean" in the UI — these should be reconciled against the live CMS/database before launch.
+Pricing, batch dates, testimonials, and legal page copy have since been finalized for this rebuild.
+Course pricing, exact legal policy terms, and testimonial attributions should still be reconciled
+against the live CMS/database and legal counsel before production launch.

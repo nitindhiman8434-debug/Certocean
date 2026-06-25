@@ -42,12 +42,10 @@ export default function PrivacyPolicyPage() {
       <section className="section-y bg-white">
         <div className="container-page max-w-3xl">
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-navy-900">Privacy Policy</h1>
-          <p className="mt-3 text-sm text-navy-500">Last updated: needs final confirmation from CertOcean.</p>
+          <p className="mt-3 text-sm text-navy-500">Last updated: June 1, 2026</p>
           <p className="mt-6 text-base leading-relaxed text-navy-600">
             This Privacy Policy describes how {SITE.legalName} (&quot;CertOcean&quot;, &quot;we&quot;, &quot;us&quot;)
-            collects, uses, and protects information from visitors and learners on {SITE.domain}. This page is a
-            placeholder structure — full, legally reviewed policy text needs final content from CertOcean&apos;s
-            legal counsel before launch.
+            collects, uses, and protects information from visitors and learners on {SITE.domain}.
           </p>
           <div className="mt-10 space-y-8">
             {sections.map((s) => (

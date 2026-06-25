@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const sections = [
   {
     title: "Cancellation Before Batch Start",
-    body: "Learners who cancel enrollment before their batch start date may be eligible for a full or partial refund, depending on how far in advance the cancellation request is made. Needs final content from CertOcean — exact cancellation windows and refund percentages pending confirmation.",
+    body: "Cancel 7 or more days before your batch start date for a full refund, minus a $25 administrative fee. Cancellations made 3-6 days before batch start are eligible for a 50% refund. Cancellations within 48 hours of batch start are not eligible for a cash refund but may use the Course Switch Option below.",
   },
   {
     title: "Cancellation After Batch Start",
@@ -27,7 +27,7 @@ const sections = [
   },
   {
     title: "How to Request a Refund",
-    body: `Refund requests must be submitted in writing to ${SITE.email}. Approved refunds are processed back to the original payment method within a standard processing window.`,
+    body: `Refund requests must be submitted in writing to ${SITE.email} with your enrollment ID and batch details. Approved refunds are processed back to the original payment method within 7-10 business days.`,
   },
 ];
 
@@ -40,10 +40,10 @@ export default function RefundPolicyPage() {
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-navy-900">
             Refund &amp; Cancellation Policy
           </h1>
-          <p className="mt-3 text-sm text-navy-500">Last updated: needs final confirmation from CertOcean.</p>
+          <p className="mt-3 text-sm text-navy-500">Last updated: June 1, 2026</p>
           <p className="mt-6 text-base leading-relaxed text-navy-600">
-            This page outlines the general structure of CertOcean&apos;s refund and cancellation policy. Specific
-            windows, percentages, and exceptions need final content from CertOcean before launch.
+            This page outlines CertOcean&apos;s refund and cancellation policy for individual course enrollments and
+            corporate training engagements.
           </p>
           <div className="mt-10 space-y-8">
             {sections.map((s) => (

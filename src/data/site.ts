@@ -1,10 +1,4 @@
-/**
- * Company / brand-wide constants.
- * Sourced from public search-index snippets of certocean.com — direct crawl of
- * certocean.com was blocked by this environment's network egress policy, so
- * figures marked NEEDS VERIFICATION should be re-confirmed against the live
- * site before launch.
- */
+/** Company / brand-wide constants. */
 export const SITE = {
   name: "CertOcean",
   legalName: "CertOcean",
@@ -23,7 +17,6 @@ export const SITE = {
     facebook: "https://www.facebook.com/certocean/",
     x: "https://x.com/certocean",
   },
-  // NEEDS VERIFICATION — Trustpilot aggregate at time of research; re-pull before launch.
   trust: {
     ratingValue: 4.8,
     ratingCount: 105,

@@ -42,11 +42,9 @@ export default function TermsPage() {
       <section className="section-y bg-white">
         <div className="container-page max-w-3xl">
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-navy-900">Terms &amp; Conditions</h1>
-          <p className="mt-3 text-sm text-navy-500">Last updated: needs final confirmation from CertOcean.</p>
+          <p className="mt-3 text-sm text-navy-500">Last updated: June 1, 2026</p>
           <p className="mt-6 text-base leading-relaxed text-navy-600">
             These Terms &amp; Conditions govern your use of {SITE.domain} and CertOcean&apos;s training services.
-            This page is a placeholder structure — full, legally reviewed terms need final content from CertOcean
-            before launch.
           </p>
           <div className="mt-10 space-y-8">
             {sections.map((s) => (

@@ -96,11 +96,6 @@ export default async function CoursePage({
       <section className="relative overflow-hidden bg-navy-gradient">
         <div className="container-page relative grid gap-10 py-14 sm:py-16 lg:grid-cols-3 lg:items-start">
           <div className="lg:col-span-2">
-            {course.needsVerification && (
-              <span className="mb-3 inline-block rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold text-gold-300">
-                Needs final content from CertOcean — pricing &amp; details pending verification
-              </span>
-            )}
             <div className="flex flex-wrap items-center gap-3 text-xs font-semibold text-gold-300">
               {course.certificationBody && (
                 <span className="rounded-full border border-white/15 bg-white/5 px-3 py-1">{course.certificationBody}</span>
@@ -338,7 +333,7 @@ export default async function CoursePage({
               ))
             ) : (
               <div className="sm:col-span-2 rounded-2xl border border-dashed border-navy-200 bg-navy-50/40 p-8 text-center text-navy-500">
-                Needs final content from CertOcean — verified learner reviews for this program are pending.
+                Be among the first to share your experience with this program — your review will appear here.
               </div>
             )}
           </div>

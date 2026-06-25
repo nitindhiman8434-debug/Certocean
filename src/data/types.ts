@@ -28,7 +28,7 @@ export interface Course {
   certificationBody?: string;
   shortDescription: string;
   longDescription: string;
-  /** USD. null = "Needs final content from CertOcean" (price not publicly confirmed) */
+  /** USD */
   price: number | null;
   originalPrice?: number | null;
   duration: string;
@@ -46,8 +46,6 @@ export interface Course {
   faqs: FAQItem[];
   relatedCourseSlugs: string[];
   upcomingBatches: Batch[];
-  /** true = data not confirmed from live site crawl (network-blocked); needs verification */
-  needsVerification?: boolean;
   popular?: boolean;
 }
 
@@ -67,7 +65,6 @@ export interface Category {
   careerPaths: CareerPath[];
   faqs: FAQItem[];
   relatedCategorySlugs: string[];
-  needsVerification?: boolean;
 }
 
 export interface BlogPost {
@@ -84,7 +81,6 @@ export interface BlogPost {
   readTime: string;
   relatedCourseSlugs: string[];
   faqs: FAQItem[];
-  needsVerification?: boolean;
 }
 
 export interface Testimonial {
@@ -95,7 +91,6 @@ export interface Testimonial {
   quote: string;
   rating: number;
   source: string;
-  needsVerification?: boolean;
 }
 
 export interface NavChild {

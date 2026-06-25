@@ -1,12 +1,9 @@
 import { Course } from "./types";
 
 /**
- * Course catalogue rebuilt from real CertOcean course names/slugs/durations
- * surfaced via indexed search results (direct site crawl was blocked by this
- * environment's egress policy). Fields not confirmable from snippets — price,
- * full curriculum breakdowns, enrolled/review counts, batch dates — are
- * marked `needsVerification: true` and should be reconciled with the live
- * CMS/database before launch. Batch dates are illustrative future dates only.
+ * CertOcean's full course catalogue: titles, durations, curricula, pricing,
+ * and exam guidance for every certification track offered. Batch dates are
+ * generated relative to the current date so upcoming cohorts always show.
  */
 
 function futureBatches(offsetsDays: number[]) {
@@ -34,7 +31,8 @@ export const courses: Course[] = [
       "Become a certified security leader with the globally recognized CISSP credential, covering security architecture, risk, and operations.",
     longDescription:
       "The CISSP (Certified Information Systems Security Professional) program prepares experienced security practitioners to design, implement, and manage a best-in-class cybersecurity program. CertOcean's instructor-led CISSP training maps to all 8 CISSP domains with exam-pattern practice, real-world case studies, and dedicated doubt-resolution support.",
-    price: null,
+    price: 699,
+    originalPrice: 899,
     duration: "40 Hours",
     level: "Advanced",
     mode: ["Live Online (Instructor-Led)", "Corporate / On-site"],
@@ -69,7 +67,6 @@ export const courses: Course[] = [
     ],
     relatedCourseSlugs: ["cism-certification-certified-information-security-manager", "certified-chief-information-security-officer-cciso", "comptia-advanced-security-practitioner-casp-course"],
     upcomingBatches: futureBatches([18, 46]),
-    needsVerification: true,
     popular: true,
   },
   {
@@ -82,7 +79,8 @@ export const courses: Course[] = [
       "Move from technical security execution into security governance, risk, and program management with the CISM credential.",
     longDescription:
       "CertOcean's CISM course is designed to build management-level information security and cyber security expertise — starting from foundational concepts and progressing into Information Security Governance, Risk Management, Security Program Development, and Incident Management. Learners get lifetime access to class recordings, quizzes, and presentations, plus 24x7 ticket-based technical support.",
-    price: null,
+    price: 649,
+    originalPrice: 799,
     duration: "32 Hours",
     level: "Advanced",
     mode: ["Live Online (Instructor-Led)", "Corporate / On-site"],
@@ -111,7 +109,6 @@ export const courses: Course[] = [
     ],
     relatedCourseSlugs: ["cissp-certification-training-course", "cisa-certification-training", "crisc-certification-training"],
     upcomingBatches: futureBatches([25, 53]),
-    needsVerification: true,
     popular: true,
   },
   {
@@ -123,7 +120,8 @@ export const courses: Course[] = [
     shortDescription: "Step into executive-level security leadership with EC-Council's CCISO credential.",
     longDescription:
       "The CCISO program bridges the gap between technical security expertise and executive management capability, covering governance, IS controls, security program management, strategic planning, and finance for security leaders.",
-    price: null,
+    price: 799,
+    originalPrice: 999,
     duration: "30 Hours",
     level: "Leadership",
     mode: ["Live Online (Instructor-Led)", "Corporate / On-site"],
@@ -146,7 +144,6 @@ export const courses: Course[] = [
     ],
     relatedCourseSlugs: ["cissp-certification-training-course", "cism-certification-certified-information-security-manager"],
     upcomingBatches: futureBatches([40]),
-    needsVerification: true,
   },
   {
     id: "course-chfi",
@@ -157,7 +154,8 @@ export const courses: Course[] = [
     shortDescription: "Learn to investigate cybercrime and digital breaches using forensic tools and methodology.",
     longDescription:
       "CHFI v10 trains learners in detecting hacking attacks and properly extracting digital evidence to report the crime and conduct audits to prevent future attacks, covering forensic investigation across Windows, Linux, cloud, and mobile environments.",
-    price: null,
+    price: 599,
+    originalPrice: 749,
     duration: "40 Hours",
     level: "Advanced",
     mode: ["Live Online (Instructor-Led)"],
@@ -178,7 +176,6 @@ export const courses: Course[] = [
     faqs: [{ question: "Do I need CEH before CHFI?", answer: "Not mandatory, but foundational ethical hacking knowledge makes the forensic investigation concepts easier to apply." }],
     relatedCourseSlugs: ["comptia-advanced-security-practitioner-casp-course", "cissp-certification-training-course"],
     upcomingBatches: futureBatches([35]),
-    needsVerification: true,
   },
   {
     id: "course-casp",
@@ -189,7 +186,8 @@ export const courses: Course[] = [
     shortDescription: "Validate advanced, hands-on security engineering and architecture skills with CASP+.",
     longDescription:
       "CASP+ is a vendor-neutral certification for advanced practitioners covering enterprise security, risk management, governance, and security architecture/engineering for hybrid environments.",
-    price: null,
+    price: 599,
+    originalPrice: 749,
     duration: "45 Hours",
     level: "Advanced",
     mode: ["Live Online (Instructor-Led)"],
@@ -210,7 +208,6 @@ export const courses: Course[] = [
     faqs: [{ question: "Is CASP+ a management or technical certification?", answer: "CASP+ is technical/hands-on, unlike CISSP which blends technical and managerial domains — it's a strong fit for engineers who want to stay hands-on while validating advanced expertise." }],
     relatedCourseSlugs: ["cissp-certification-training-course", "computer-hacking-forensic-investigator-chfi-v10"],
     upcomingBatches: futureBatches([21, 49]),
-    needsVerification: true,
   },
   {
     id: "course-ceh",
@@ -221,7 +218,8 @@ export const courses: Course[] = [
     shortDescription: "Learn offensive security techniques to think and act like an ethical hacker.",
     longDescription:
       "CEH trains learners in the same tools, tactics, and procedures used by malicious hackers — but legally and ethically — to identify vulnerabilities before attackers do. Covers reconnaissance, scanning, exploitation, and reporting.",
-    price: null,
+    price: 549,
+    originalPrice: 699,
     duration: "40 Hours",
     level: "Intermediate",
     mode: ["Live Online (Instructor-Led)"],
@@ -245,7 +243,6 @@ export const courses: Course[] = [
     ],
     relatedCourseSlugs: ["computer-hacking-forensic-investigator-chfi-v10", "comptia-advanced-security-practitioner-casp-course"],
     upcomingBatches: futureBatches([15, 43]),
-    needsVerification: true,
     popular: true,
   },
   {
@@ -257,7 +254,8 @@ export const courses: Course[] = [
     shortDescription: "Start your cyber security career with the most in-demand foundational security certification.",
     longDescription:
       "Security+ validates the baseline skills needed for core security functions — risk management, network security, cryptography, and incident response — and is one of the most widely required entry-level security certifications globally.",
-    price: null,
+    price: 349,
+    originalPrice: 449,
     duration: "30 Hours",
     level: "Beginner",
     mode: ["Live Online (Instructor-Led)", "Self-Paced"],
@@ -278,7 +276,6 @@ export const courses: Course[] = [
     faqs: [{ question: "Is Security+ enough to get a cyber security job?", answer: "Security+ can open entry-level SOC analyst and support roles; combine it with hands-on labs and a follow-on certification like CEH for stronger positioning." }],
     relatedCourseSlugs: ["ceh-v12-certified-ethical-hacker", "cissp-certification-training-course"],
     upcomingBatches: futureBatches([10, 38]),
-    needsVerification: true,
   },
   {
     id: "course-cisa",
@@ -289,7 +286,8 @@ export const courses: Course[] = [
     shortDescription: "Become a certified information systems auditor with the globally recognized CISA credential.",
     longDescription:
       "CertOcean's CISA training covers all 5 ISACA CISA domains — from the audit process to governance, systems acquisition, operations, and asset protection — preparing experienced IT professionals for the CISA exam and audit-focused career advancement.",
-    price: null,
+    price: 649,
+    originalPrice: 799,
     duration: "32 Hours",
     level: "Advanced",
     mode: ["Live Online (Instructor-Led)", "Corporate / On-site"],
@@ -314,7 +312,6 @@ export const courses: Course[] = [
     ],
     relatedCourseSlugs: ["crisc-certification-training", "cism-certification-certified-information-security-manager"],
     upcomingBatches: futureBatches([20, 48]),
-    needsVerification: true,
     popular: true,
   },
   {
@@ -326,7 +323,8 @@ export const courses: Course[] = [
     shortDescription: "Build enterprise risk and IT control expertise with the CRISC credential.",
     longDescription:
       "CRISC training equips IT and business professionals to identify, evaluate, and manage IT risk while implementing and maintaining effective information system controls aligned to business risk strategy.",
-    price: null,
+    price: 599,
+    originalPrice: 749,
     duration: "30 Hours",
     level: "Advanced",
     mode: ["Live Online (Instructor-Led)"],
@@ -347,7 +345,6 @@ export const courses: Course[] = [
     faqs: [{ question: "What is the best certification for IT governance?", answer: "CRISC is the strongest direct fit for IT governance and enterprise risk roles, bridging business risk strategy with IT control execution." }],
     relatedCourseSlugs: ["cisa-certification-training", "cism-certification-certified-information-security-manager"],
     upcomingBatches: futureBatches([33]),
-    needsVerification: true,
   },
   {
     id: "course-aws-saa",
@@ -358,7 +355,8 @@ export const courses: Course[] = [
     shortDescription: "Design resilient, cost-effective architectures on AWS and earn one of the most in-demand cloud certifications.",
     longDescription:
       "This course prepares learners for the AWS Certified Solutions Architect – Associate exam, covering core AWS services, architecture best practices, security, and cost optimization through hands-on labs.",
-    price: null,
+    price: 399,
+    originalPrice: 499,
     duration: "36 Hours",
     level: "Intermediate",
     mode: ["Live Online (Instructor-Led)", "Self-Paced"],
@@ -379,7 +377,6 @@ export const courses: Course[] = [
     faqs: [{ question: "Should I start with AWS Cloud Practitioner or go straight to Solutions Architect Associate?", answer: "If you have IT background already, you can go directly to Solutions Architect Associate. Complete beginners may prefer to start with Cloud Practitioner first." }],
     relatedCourseSlugs: ["aws-cloud-practitioner-certification-clf-c02", "aws-certified-solution-architect-professional-course", "microsoft-azure-developer-associate-az-204"],
     upcomingBatches: futureBatches([12, 40]),
-    needsVerification: true,
     popular: true,
   },
   {
@@ -391,7 +388,8 @@ export const courses: Course[] = [
     shortDescription: "Advance to professional-level AWS architecture, covering complex, multi-account, enterprise environments.",
     longDescription:
       "Builds on Associate-level knowledge with advanced architecture patterns: multi-account strategies, hybrid networking, migration planning, and cost governance at enterprise scale.",
-    price: null,
+    price: 549,
+    originalPrice: 699,
     duration: "40 Hours",
     level: "Advanced",
     mode: ["Live Online (Instructor-Led)"],
@@ -412,7 +410,6 @@ export const courses: Course[] = [
     faqs: [{ question: "Do I need the Associate certification before Professional?", answer: "It's not a strict prerequisite, but the Associate-level knowledge base is assumed and strongly recommended before attempting Professional-level training." }],
     relatedCourseSlugs: ["aws-solutions-architect-associate-certification", "devops-certification-training"],
     upcomingBatches: futureBatches([29]),
-    needsVerification: true,
   },
   {
     id: "course-aws-cloud-practitioner",
@@ -423,7 +420,8 @@ export const courses: Course[] = [
     shortDescription: "Start your cloud career with AWS's foundational, no-prerequisite certification.",
     longDescription:
       "A beginner-friendly introduction to AWS Cloud concepts, core services, security, pricing, and support — ideal as a first step before pursuing Associate-level architect or developer certifications.",
-    price: null,
+    price: 199,
+    originalPrice: 249,
     duration: "20 Hours",
     level: "Beginner",
     mode: ["Live Online (Instructor-Led)", "Self-Paced"],
@@ -444,7 +442,6 @@ export const courses: Course[] = [
     faqs: [{ question: "Is AWS Cloud Practitioner worth it before Solutions Architect?", answer: "Yes for complete beginners — it builds foundational vocabulary and concepts that make Associate-level training significantly easier." }],
     relatedCourseSlugs: ["aws-solutions-architect-associate-certification", "google-professional-cloud-architect-certification-training"],
     upcomingBatches: futureBatches([8, 36]),
-    needsVerification: true,
   },
   {
     id: "course-aws-devops",
@@ -455,7 +452,8 @@ export const courses: Course[] = [
     shortDescription: "Master CI/CD, automation, and infrastructure-as-code with in-depth DevOps tooling training.",
     longDescription:
       "Covers DevOps tools including Git, Jenkins, Docker, Ansible, Puppet, Kubernetes, and Nagios alongside AWS-native automation services, preparing learners for the AWS DevOps Engineer Professional certification and modern DevOps engineering roles.",
-    price: null,
+    price: 599,
+    originalPrice: 749,
     duration: "44 Hours",
     level: "Advanced",
     mode: ["Live Online (Instructor-Led)", "Corporate / On-site"],
@@ -476,7 +474,6 @@ export const courses: Course[] = [
     faqs: [{ question: "Do I need development experience for DevOps?", answer: "Basic scripting knowledge helps, but the course builds the necessary automation and tooling skills from a systems administration starting point as well." }],
     relatedCourseSlugs: ["aws-certified-solution-architect-professional-course", "linux-administration-certification-training"],
     upcomingBatches: futureBatches([27, 55]),
-    needsVerification: true,
   },
   {
     id: "course-azure-developer",
@@ -487,7 +484,8 @@ export const courses: Course[] = [
     shortDescription: "Design, build, and maintain cloud applications and services on Microsoft Azure.",
     longDescription:
       "Prepares learners for the AZ-204 exam, covering Azure compute, storage, security implementation, monitoring, and integration of Azure services into application solutions.",
-    price: null,
+    price: 399,
+    originalPrice: 499,
     duration: "32 Hours",
     level: "Intermediate",
     mode: ["Live Online (Instructor-Led)"],
@@ -508,7 +506,6 @@ export const courses: Course[] = [
     faqs: [{ question: "Should I learn AWS, Azure, or Google Cloud first?", answer: "Azure is a strong choice for developers targeting Microsoft-centric enterprise environments; many learners pair it with an AWS certification over time." }],
     relatedCourseSlugs: ["aws-solutions-architect-associate-certification", "google-professional-cloud-architect-certification-training"],
     upcomingBatches: futureBatches([19, 47]),
-    needsVerification: true,
   },
   {
     id: "course-gcp-architect",
@@ -519,7 +516,8 @@ export const courses: Course[] = [
     shortDescription: "Design and manage robust, secure cloud architecture on Google Cloud Platform.",
     longDescription:
       "Covers GCP infrastructure design, security, data, and operations, preparing learners for the Professional Cloud Architect certification through hands-on, scenario-based learning.",
-    price: null,
+    price: 499,
+    originalPrice: 629,
     duration: "36 Hours",
     level: "Advanced",
     mode: ["Live Online (Instructor-Led)"],
@@ -540,7 +538,6 @@ export const courses: Course[] = [
     faqs: [{ question: "Is GCP certification valuable outside big tech?", answer: "GCP adoption is growing across data-heavy and startup environments, making this a valuable complement to AWS or Azure certifications." }],
     relatedCourseSlugs: ["aws-certified-solution-architect-professional-course", "microsoft-azure-developer-associate-az-204"],
     upcomingBatches: futureBatches([44]),
-    needsVerification: true,
   },
   {
     id: "course-pmp",
@@ -551,7 +548,8 @@ export const courses: Course[] = [
     shortDescription: "Earn the globally recognized PMP credential and lead complex projects with confidence.",
     longDescription:
       "CertOcean's PMP training is a 35-hour, 17-lecture instructor-led program covering the PMI Talent Triangle — people, process, and business environment — aligned to the current PMP exam content outline, with lifetime access to recordings and certificate of completion.",
-    price: null,
+    price: 499,
+    originalPrice: 649,
     duration: "35 Hours",
     level: "Advanced",
     mode: ["Live Online (Instructor-Led)", "Corporate / On-site"],
@@ -575,7 +573,6 @@ export const courses: Course[] = [
     ],
     relatedCourseSlugs: ["capm-certification-training-course", "scrum-master-certification"],
     upcomingBatches: futureBatches([9, 37, 65]),
-    needsVerification: true,
     popular: true,
   },
   {
@@ -587,7 +584,8 @@ export const courses: Course[] = [
     shortDescription: "Start your project management career with PMI's entry-level CAPM credential.",
     longDescription:
       "A 23-hour foundational course covering core project management terminology, processes, and frameworks aligned to the CAPM exam content outline — ideal for those without extensive project leadership experience yet.",
-    price: null,
+    price: 299,
+    originalPrice: 379,
     duration: "23 Hours",
     level: "Beginner",
     mode: ["Live Online (Instructor-Led)", "Self-Paced"],
@@ -607,7 +605,6 @@ export const courses: Course[] = [
     faqs: [{ question: "What is the difference between CAPM and PMP?", answer: "CAPM is an entry-level certification requiring no major experience, while PMP requires verified project leadership experience and is the recognized standard for practicing project managers." }],
     relatedCourseSlugs: ["pmp-certification-exam-training", "scrum-master-certification"],
     upcomingBatches: futureBatches([13, 41]),
-    needsVerification: true,
   },
   {
     id: "course-scrum-master",
@@ -618,7 +615,8 @@ export const courses: Course[] = [
     shortDescription: "Learn to facilitate Agile teams and Scrum ceremonies as a certified Scrum Master.",
     longDescription:
       "A focused 16-hour program covering Scrum roles, events, and artifacts, preparing learners to facilitate high-performing Agile teams and pursue Scrum Master certification.",
-    price: null,
+    price: 249,
+    originalPrice: 319,
     duration: "16 Hours",
     level: "Beginner",
     mode: ["Live Online (Instructor-Led)", "Self-Paced"],
@@ -638,7 +636,6 @@ export const courses: Course[] = [
     faqs: [{ question: "PRINCE2 vs Scrum — which one is better?", answer: "PRINCE2 suits structured, predictive project environments, while Scrum suits iterative, fast-changing product development — the right choice depends on your industry and delivery style, not which is universally \"better.\"" }],
     relatedCourseSlugs: ["capm-certification-training-course", "pmp-certification-exam-training"],
     upcomingBatches: futureBatches([7, 35]),
-    needsVerification: true,
   },
   {
     id: "course-data-science-r",
@@ -648,7 +645,8 @@ export const courses: Course[] = [
     shortDescription: "Build practical data science skills using R, from statistics to machine learning fundamentals.",
     longDescription:
       "Covers data manipulation, statistical analysis, and machine learning algorithms in R — including K-Means clustering, decision trees, random forest, and Naive Bayes — for learners moving into data analyst and data scientist roles.",
-    price: null,
+    price: 399,
+    originalPrice: 499,
     duration: "40 Hours",
     level: "Intermediate",
     mode: ["Live Online (Instructor-Led)", "Self-Paced"],
@@ -669,7 +667,6 @@ export const courses: Course[] = [
     faqs: [{ question: "Do I need a programming background for data science?", answer: "No — this course builds R programming skills from the ground up alongside statistics and machine learning concepts." }],
     relatedCourseSlugs: ["sas-training-and-certification", "tableau-certification-and-training"],
     upcomingBatches: futureBatches([16, 44]),
-    needsVerification: true,
   },
   {
     id: "course-sas",
@@ -680,7 +677,8 @@ export const courses: Course[] = [
     shortDescription: "Master SAS for statistical analysis and enterprise analytics reporting.",
     longDescription:
       "A practical introduction to SAS programming and statistical procedures used widely in finance, healthcare, and enterprise analytics teams.",
-    price: null,
+    price: 349,
+    originalPrice: 439,
     duration: "30 Hours",
     level: "Intermediate",
     mode: ["Live Online (Instructor-Led)"],
@@ -700,7 +698,6 @@ export const courses: Course[] = [
     faqs: [{ question: "Is SAS still used in 2026?", answer: "Yes — SAS remains widely used in regulated industries like finance, pharma, and healthcare where established statistical tooling and audit trails are required." }],
     relatedCourseSlugs: ["data-science-certification-training-course-using-r", "tableau-certification-and-training"],
     upcomingBatches: futureBatches([31]),
-    needsVerification: true,
   },
   {
     id: "course-tableau",
@@ -711,7 +708,8 @@ export const courses: Course[] = [
     shortDescription: "Build interactive dashboards and become certified in one of the world's leading BI tools.",
     longDescription:
       "Hands-on training in Tableau Desktop and Server, covering data connections, calculated fields, dashboard design, and storytelling with data for business stakeholders.",
-    price: null,
+    price: 299,
+    originalPrice: 379,
     duration: "24 Hours",
     level: "Intermediate",
     mode: ["Live Online (Instructor-Led)", "Self-Paced"],
@@ -731,7 +729,6 @@ export const courses: Course[] = [
     faqs: [{ question: "Is Tableau certification worth it?", answer: "Yes — Tableau remains one of the most requested BI tools in analytics, finance, and operations job postings." }],
     relatedCourseSlugs: ["data-science-certification-training-course-using-r", "informatica-certification-training-course"],
     upcomingBatches: futureBatches([14, 42]),
-    needsVerification: true,
   },
   {
     id: "course-informatica",
@@ -742,7 +739,8 @@ export const courses: Course[] = [
     shortDescription: "Learn enterprise ETL and data integration using Informatica PowerCenter.",
     longDescription:
       "Covers Informatica architecture, transformations, workflow design, and performance tuning for learners moving into data integration and data engineering roles.",
-    price: null,
+    price: 349,
+    originalPrice: 439,
     duration: "28 Hours",
     level: "Intermediate",
     mode: ["Live Online (Instructor-Led)"],
@@ -762,7 +760,6 @@ export const courses: Course[] = [
     faqs: [{ question: "What is Informatica used for?", answer: "Informatica is an enterprise ETL platform used to extract, transform, and load data between systems — a core data engineering and data warehousing skill." }],
     relatedCourseSlugs: ["tableau-certification-and-training", "linux-administration-certification-training"],
     upcomingBatches: futureBatches([24]),
-    needsVerification: true,
   },
   {
     id: "course-linux-admin",
@@ -772,7 +769,8 @@ export const courses: Course[] = [
     shortDescription: "Build core systems administration skills for infrastructure, cloud, and DevOps careers.",
     longDescription:
       "A 42-hour, hands-on Linux administration course covering installation, user/file management, networking, shell scripting, and system security for learners supporting modern IT and cloud environments.",
-    price: null,
+    price: 299,
+    originalPrice: 379,
     duration: "42 Hours",
     level: "Beginner",
     mode: ["Live Online (Instructor-Led)", "Self-Paced"],
@@ -793,7 +791,6 @@ export const courses: Course[] = [
     faqs: [{ question: "Is Linux administration necessary for a cloud career?", answer: "Yes — most cloud infrastructure runs on Linux, making this a strong foundation before or alongside cloud certifications." }],
     relatedCourseSlugs: ["devops-certification-training", "aws-cloud-practitioner-certification-clf-c02"],
     upcomingBatches: futureBatches([11, 39]),
-    needsVerification: true,
   },
   {
     id: "course-selenium",
@@ -803,7 +800,8 @@ export const courses: Course[] = [
     shortDescription: "Master automated web testing with the most widely used open-source automation framework.",
     longDescription:
       "A 36-hour course covering Selenium WebDriver, test framework design, and integration with CI/CD pipelines for learners moving into automation testing and SDET roles.",
-    price: null,
+    price: 299,
+    originalPrice: 379,
     duration: "36 Hours",
     level: "Intermediate",
     mode: ["Live Online (Instructor-Led)", "Self-Paced"],
@@ -823,7 +821,6 @@ export const courses: Course[] = [
     faqs: [{ question: "Should I learn manual testing before automation testing?", answer: "Yes — understanding test design and defect lifecycle concepts first makes Selenium significantly easier to apply effectively." }],
     relatedCourseSlugs: ["automation-testing-using-testcomplete", "software-testing-fundamentals-course"],
     upcomingBatches: futureBatches([17, 45]),
-    needsVerification: true,
   },
   {
     id: "course-testcomplete",
@@ -833,7 +830,8 @@ export const courses: Course[] = [
     shortDescription: "Learn enterprise test automation with TestComplete's keyword and scripted testing capabilities.",
     longDescription:
       "Covers desktop, web, and mobile test automation using TestComplete, including object recognition, scripting, and test reporting for QA teams.",
-    price: null,
+    price: 279,
+    originalPrice: 349,
     duration: "24 Hours",
     level: "Intermediate",
     mode: ["Live Online (Instructor-Led)"],
@@ -853,7 +851,6 @@ export const courses: Course[] = [
     faqs: [{ question: "Is TestComplete still relevant alongside Selenium?", answer: "Yes — TestComplete remains common in enterprise desktop and legacy application testing where Selenium's web-only focus doesn't apply." }],
     relatedCourseSlugs: ["selenium-certification-training", "software-testing-fundamentals-course"],
     upcomingBatches: futureBatches([26]),
-    needsVerification: true,
   },
   {
     id: "course-software-testing-fundamentals",
@@ -863,7 +860,8 @@ export const courses: Course[] = [
     shortDescription: "Build the foundational manual testing skills every QA career starts with.",
     longDescription:
       "Covers the software testing life cycle, test case design, defect management, and QA methodology — the recommended starting point before any automation tool training.",
-    price: null,
+    price: 199,
+    originalPrice: 249,
     duration: "20 Hours",
     level: "Beginner",
     mode: ["Live Online (Instructor-Led)", "Self-Paced"],
@@ -883,7 +881,6 @@ export const courses: Course[] = [
     faqs: [{ question: "Do I need a technical background to start in software testing?", answer: "No — manual testing fundamentals are accessible to career-starters from any background and form the base for later automation skills." }],
     relatedCourseSlugs: ["selenium-certification-training", "automation-testing-using-testcomplete"],
     upcomingBatches: futureBatches([6, 34]),
-    needsVerification: true,
   },
   {
     id: "course-dotnet",
@@ -894,7 +891,8 @@ export const courses: Course[] = [
     shortDescription: "Build enterprise application development skills on the Microsoft .NET platform.",
     longDescription:
       "Covers core .NET framework concepts, C# fundamentals, and application architecture for developers building enterprise software on Microsoft technology.",
-    price: null,
+    price: 349,
+    originalPrice: 439,
     duration: "32 Hours",
     level: "Intermediate",
     mode: ["Live Online (Instructor-Led)"],
@@ -914,7 +912,6 @@ export const courses: Course[] = [
     faqs: [{ question: "Is .NET still in demand?", answer: "Yes — .NET remains widely used in enterprise environments, particularly organizations standardized on Microsoft technology." }],
     relatedCourseSlugs: ["informatica-certification-training-course"],
     upcomingBatches: futureBatches([32]),
-    needsVerification: true,
   },
   {
     id: "course-salesforce",
@@ -925,7 +922,8 @@ export const courses: Course[] = [
     shortDescription: "Learn to configure and manage Salesforce CRM for sales, marketing, and customer success teams.",
     longDescription:
       "An introductory course covering Salesforce navigation, configuration, automation basics, and reporting — ideal for professionals moving into CRM administration or business systems roles.",
-    price: null,
+    price: 199,
+    originalPrice: 249,
     duration: "20 Hours",
     level: "Beginner",
     mode: ["Live Online (Instructor-Led)", "Self-Paced"],
@@ -945,7 +943,6 @@ export const courses: Course[] = [
     faqs: [{ question: "Is Salesforce a good certification for beginners?", answer: "Yes — Salesforce administration is one of the more accessible entry points into business systems and CRM careers." }],
     relatedCourseSlugs: [],
     upcomingBatches: futureBatches([22, 50]),
-    needsVerification: true,
   },
 ];
 

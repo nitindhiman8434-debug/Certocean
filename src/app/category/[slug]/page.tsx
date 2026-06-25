@@ -130,7 +130,7 @@ export default async function CategoryPage({
             </div>
           ) : (
             <div className="mt-10 rounded-2xl border border-dashed border-navy-200 bg-white p-10 text-center text-navy-500">
-              Needs final content from CertOcean — course list for this category is pending confirmation.
+              New courses for this track are being added — talk to an advisor to be notified when enrollment opens.
             </div>
           )}
         </div>

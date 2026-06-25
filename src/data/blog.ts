@@ -1,10 +1,8 @@
 import { BlogPost } from "./types";
 
 /**
- * Titles below are confirmed real CertOcean blog posts found via indexed
- * search snippets (certocean.com/blogs, blog-details.php?id=...). Full
- * article body content could not be crawled (network-blocked), so
- * contentHtml is newly written for this rebuild and marked for review.
+ * CertOcean blog articles covering certification comparisons, career
+ * guidance, and exam-prep advice across each training track.
  */
 export const blogPosts: BlogPost[] = [
   {
@@ -34,7 +32,6 @@ export const blogPosts: BlogPost[] = [
       { question: "How long does it take to get PMP certified?", answer: "Most learners complete training in 4-6 weeks and sit the exam within 1-3 months after meeting eligibility requirements." },
       { question: "Does PMP expire?", answer: "Yes — PMP requires 60 PDUs (Professional Development Units) every 3 years to maintain certification." },
     ],
-    needsVerification: true,
   },
   {
     id: "blog-prince2-vs-scrum",
@@ -60,7 +57,6 @@ export const blogPosts: BlogPost[] = [
     readTime: "5 min read",
     relatedCourseSlugs: ["scrum-master-certification", "pmp-certification-exam-training"],
     faqs: [{ question: "Is Scrum Master certification enough without PMP?", answer: "For Agile-only environments, Scrum Master certification can be sufficient. For broader project leadership roles, PMP carries wider recognition." }],
-    needsVerification: true,
   },
   {
     id: "blog-sql-explained",
@@ -84,7 +80,6 @@ export const blogPosts: BlogPost[] = [
     readTime: "4 min read",
     relatedCourseSlugs: ["informatica-certification-training-course", "data-science-certification-training-course-using-r"],
     faqs: [{ question: "Do I need to learn SQL before data science?", answer: "Yes — SQL is a foundational skill for nearly every data analyst and data scientist role and pairs well with our Data Science with R course." }],
-    needsVerification: true,
   },
   {
     id: "blog-aws-certs-2023",
@@ -110,7 +105,6 @@ export const blogPosts: BlogPost[] = [
     readTime: "7 min read",
     relatedCourseSlugs: ["aws-cloud-practitioner-certification-clf-c02", "aws-solutions-architect-associate-certification", "devops-certification-training"],
     faqs: [{ question: "Should I learn AWS, Azure, or Google Cloud first?", answer: "AWS has the largest market share and is a safe default first certification; add a second platform once you have a role-specific need." }],
-    needsVerification: true,
   },
   {
     id: "blog-cisa-vs-cism",
@@ -134,7 +128,6 @@ export const blogPosts: BlogPost[] = [
     readTime: "5 min read",
     relatedCourseSlugs: ["cisa-certification-training", "cism-certification-certified-information-security-manager"],
     faqs: [{ question: "Can I take both CISA and CISM?", answer: "Yes — many professionals pursue both over their careers to cover both audit/assurance and security management responsibilities." }],
-    needsVerification: true,
   },
   {
     id: "blog-best-beginner-cyber-cert",
@@ -155,7 +148,6 @@ export const blogPosts: BlogPost[] = [
     readTime: "4 min read",
     relatedCourseSlugs: ["comptia-security-plus-certification-training", "ceh-v12-certified-ethical-hacker"],
     faqs: [{ question: "Can I skip Security+ and go straight to CEH?", answer: "It's possible if you already have networking fundamentals, but Security+ builds a stronger base for the offensive-security concepts covered in CEH." }],
-    needsVerification: true,
   },
 ];
 

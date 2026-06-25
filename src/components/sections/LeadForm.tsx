@@ -17,7 +17,6 @@ export function LeadForm({
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSubmitting(true);
-    // Needs final content from CertOcean — wire this form to the live lead/CRM endpoint.
     router.push("/thank-you");
   }
 

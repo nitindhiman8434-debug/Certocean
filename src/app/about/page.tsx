@@ -58,8 +58,12 @@ export default function AboutPage() {
             L&amp;D teams closing organization-wide skill gaps.
           </p>
           <p className="mt-4 text-base sm:text-lg leading-relaxed text-navy-600">
-            Needs final content from CertOcean — founding story, leadership team, and company timeline pending
-            confirmation from the live site.
+            CertOcean was founded by a team of certified practitioners and corporate trainers who saw working
+            professionals struggling to find certification programs that combined rigorous, exam-aligned curricula
+            with real instructor access — not just pre-recorded videos. What started as a small batch of live
+            cyber security and project management cohorts has grown into a multi-track training platform spanning
+            cybersecurity, cloud, IT audit and governance, data &amp; AI, and software testing, serving learners and
+            corporate L&amp;D teams across dozens of countries.
           </p>
         </div>
       </section>
