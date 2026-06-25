@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowRight, Star, Clock, BadgeCheck } from "lucide-react";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/ui/Reveal";
 import { CategoryIcon } from "@/components/ui/CategoryIcon";
 import { CourseCard } from "@/components/cards/CourseCard";
 import { CategoryCard } from "@/components/cards/CategoryCard";
@@ -57,10 +58,11 @@ export default async function CategoryPage({
       <Breadcrumbs items={[{ label: "Courses", href: "/courses" }, { label: category.name }]} />
 
       {/* 1. Hero */}
-      <section className="relative overflow-hidden bg-navy-gradient">
+      <section className="hero-noise relative overflow-hidden bg-navy-gradient">
+        <div className="absolute inset-0 bg-grid-fade" />
         <div className="container-page relative py-16 sm:py-20">
           <div className="flex items-center gap-4">
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-gold-300">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-white/15 to-white/5 text-gold-300 ring-1 ring-white/10">
               <CategoryIcon name={category.icon} className="h-7 w-7" />
             </div>
             <span className="rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold text-gold-300">
@@ -123,11 +125,11 @@ export default async function CategoryPage({
             description="Instructor-led, exam-aligned training with advisor support from enrollment through certification."
           />
           {courses.length > 0 ? (
-            <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <Reveal className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {courses.map((course) => (
                 <CourseCard key={course.id} course={course} />
               ))}
-            </div>
+            </Reveal>
           ) : (
             <div className="mt-10 rounded-2xl border border-dashed border-navy-200 bg-white p-10 text-center text-navy-500">
               New courses for this track are being added — talk to an advisor to be notified when enrollment opens.
@@ -192,33 +194,40 @@ export default async function CategoryPage({
             light
             description="Real roles and responsibilities professionals move into after completing certifications in this track."
           />
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <Reveal className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {category.careerPaths.map((path) => (
-              <div key={path.role} className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                <BadgeCheck className="h-6 w-6 text-gold-400" />
+              <div
+                key={path.role}
+                className="group rounded-2xl border border-white/10 bg-white/5 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold-400/30 hover:bg-white/[0.08]"
+              >
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gold-500/10 text-gold-400 transition-colors group-hover:bg-gold-500 group-hover:text-navy-950">
+                  <BadgeCheck className="h-5 w-5" />
+                </div>
                 <h3 className="mt-4 font-bold text-white">{path.role}</h3>
                 <p className="mt-2 text-sm text-white/60">{path.description}</p>
               </div>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* 7. Why this track / training delivery note */}
       <section className="section-y bg-white">
-        <div className="container-page grid grid-cols-1 gap-8 lg:grid-cols-3">
+        <Reveal className="container-page grid grid-cols-1 gap-8 lg:grid-cols-3">
           {[
             { title: "Instructor-Led Sessions", description: "Live, expert-led training mapped to current exam blueprints." },
             { title: "Advisor Support", description: "1:1 guidance choosing the right certification and exam timeline." },
             { title: "Flexible Batches", description: "Weekday, weekend, and corporate batch options across timezones." },
           ].map((item) => (
-            <div key={item.title} className="rounded-2xl border border-navy-100 p-6 card-shadow">
-              <Clock className="h-6 w-6 text-gold-600" />
+            <div key={item.title} className="card-hover rounded-2xl border border-navy-100 p-6 card-shadow">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gold-50 text-gold-600">
+                <Clock className="h-5 w-5" />
+              </div>
               <h3 className="mt-4 font-bold text-navy-900">{item.title}</h3>
               <p className="mt-2 text-sm text-navy-600">{item.description}</p>
             </div>
           ))}
-        </div>
+        </Reveal>
       </section>
 
       {/* 8. Related Categories */}
@@ -226,11 +235,11 @@ export default async function CategoryPage({
         <section className="section-y bg-navy-50/40">
           <div className="container-page">
             <SectionHeading eyebrow="Explore More" title="Related Certification Tracks" />
-            <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <Reveal className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {relatedCategories.map((c) => (
                 <CategoryCard key={c.id} category={c} />
               ))}
-            </div>
+            </Reveal>
           </div>
         </section>
       )}

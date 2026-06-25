@@ -4,6 +4,7 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { LeadForm } from "@/components/sections/LeadForm";
 import { CTASection } from "@/components/sections/CTASection";
+import { Reveal } from "@/components/ui/Reveal";
 import { SITE } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -32,8 +33,9 @@ export default function CorporateTrainingPage() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Corporate Training" }]} />
-      <section className="bg-navy-gradient py-16 sm:py-20">
-        <div className="container-page grid gap-10 lg:grid-cols-2 lg:items-center">
+      <section className="hero-noise relative overflow-hidden bg-navy-gradient py-16 sm:py-20">
+        <div className="absolute inset-0 bg-grid-fade" />
+        <div className="container-page relative grid gap-10 lg:grid-cols-2 lg:items-center">
           <div>
             <span className="inline-block rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold text-gold-300">
               For Organizations
@@ -48,7 +50,7 @@ export default function CorporateTrainingPage() {
           </div>
           <div className="grid grid-cols-2 gap-4">
             {stats.map((stat) => (
-              <div key={stat.label} className="rounded-2xl bg-white/5 p-5 text-center">
+              <div key={stat.label} className="rounded-2xl border border-white/10 bg-white/5 p-5 text-center">
                 <p className="text-2xl font-bold text-white">{stat.value}</p>
                 <p className="mt-1 text-xs text-white/60">{stat.label}</p>
               </div>
@@ -60,15 +62,17 @@ export default function CorporateTrainingPage() {
       <section className="section-y bg-white">
         <div className="container-page">
           <SectionHeading eyebrow="What's Included" title="Built Around Your Team's Goals" />
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <Reveal className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {offerings.map((o) => (
-              <div key={o.title} className="rounded-2xl border border-navy-100 p-6 card-shadow">
-                <BadgeCheck className="h-6 w-6 text-gold-600" />
+              <div key={o.title} className="card-hover rounded-2xl border border-navy-100 p-6 card-shadow">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gold-50 text-gold-600">
+                  <BadgeCheck className="h-5 w-5" />
+                </div>
                 <h3 className="mt-4 font-bold text-navy-900">{o.title}</h3>
                 <p className="mt-2 text-sm text-navy-600">{o.description}</p>
               </div>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 

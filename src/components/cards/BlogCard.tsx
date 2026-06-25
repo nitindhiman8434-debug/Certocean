@@ -4,7 +4,8 @@ import { BlogPost } from "@/data/types";
 
 export function BlogCard({ post }: { post: BlogPost }) {
   return (
-    <article className="flex h-full flex-col rounded-2xl border border-navy-100 bg-white p-6 card-shadow transition-all duration-200 hover:-translate-y-1 hover:shadow-xl">
+    <article className="card-hover group relative flex h-full flex-col overflow-hidden rounded-2xl border border-navy-100 bg-white p-6 card-shadow">
+      <span className="absolute inset-x-0 top-0 h-1 w-0 bg-gradient-to-r from-gold-400 to-gold-600 transition-all duration-300 group-hover:w-full" />
       <span className="text-xs font-semibold uppercase tracking-wide text-gold-600">{post.category}</span>
       <h3 className="mt-2 text-lg font-bold text-navy-900 leading-snug">
         <Link href={`/blog/${post.slug}`} className="focus-ring hover:text-navy-700">

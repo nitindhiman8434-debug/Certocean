@@ -17,8 +17,9 @@ export default function CoursesPage() {
   return (
     <>
       <Breadcrumbs items={[{ label: "All Courses" }]} />
-      <section className="bg-navy-gradient py-14">
-        <div className="container-page text-center">
+      <section className="hero-noise relative overflow-hidden bg-navy-gradient py-14">
+        <div className="absolute inset-0 bg-grid-fade" />
+        <div className="container-page relative text-center">
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
             All Certification Programs
           </h1>

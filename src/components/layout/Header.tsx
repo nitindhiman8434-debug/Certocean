@@ -26,7 +26,7 @@ export default function Header() {
 
       <div className="container-page flex h-16 lg:h-20 items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-2 shrink-0">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-navy-900 text-sm font-bold text-gold-300">
+          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-navy-700 to-navy-950 text-sm font-bold text-gold-300 shadow-[0_6px_16px_-4px_rgba(10,23,48,0.5)]">
             CO
           </span>
           <span className="text-lg font-bold text-navy-900">

@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/ui/Reveal";
 
 export function CTASection({
   title,
@@ -16,7 +17,8 @@ export function CTASection({
   secondaryHref?: string;
 }) {
   return (
-    <section className="section-y bg-navy-gradient relative overflow-hidden">
+    <section className="section-y bg-navy-gradient hero-noise relative overflow-hidden">
+      <div className="absolute inset-0 bg-grid-fade" />
       <div
         className="absolute inset-0 opacity-20"
         style={{
@@ -24,7 +26,7 @@ export function CTASection({
             "radial-gradient(circle at 20% 20%, rgba(207,147,38,0.4), transparent 40%), radial-gradient(circle at 80% 80%, rgba(79,120,187,0.4), transparent 40%)",
         }}
       />
-      <div className="container-page relative text-center">
+      <Reveal className="container-page relative text-center">
         <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">{title}</h2>
         {description && <p className="mx-auto mt-4 max-w-2xl text-white/70 text-lg">{description}</p>}
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
@@ -35,7 +37,7 @@ export function CTASection({
             {secondaryLabel}
           </Button>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

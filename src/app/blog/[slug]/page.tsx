@@ -7,6 +7,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { FAQAccordion } from "@/components/sections/FAQAccordion";
 import { BlogCard } from "@/components/cards/BlogCard";
 import { CTASection } from "@/components/sections/CTASection";
+import { Reveal } from "@/components/ui/Reveal";
 import { blogPosts, getBlogBySlug, getRelatedBlogPosts } from "@/data/blog";
 import { SITE } from "@/data/site";
 
@@ -82,8 +83,9 @@ export default async function BlogArticlePage({
 
       <Breadcrumbs items={[{ label: "Blog", href: "/blog" }, { label: post.title }]} />
 
-      <section className="bg-navy-gradient py-14">
-        <div className="container-page max-w-3xl">
+      <section className="hero-noise relative overflow-hidden bg-navy-gradient py-14">
+        <div className="absolute inset-0 bg-grid-fade" />
+        <div className="container-page relative max-w-3xl">
           <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-gold-300">{post.category}</span>
           <h1 className="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
             {post.title}
@@ -150,11 +152,11 @@ export default async function BlogArticlePage({
         <section className="section-y bg-white">
           <div className="container-page">
             <SectionHeading eyebrow="Continue Reading" title="Related Articles" />
-            <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <Reveal className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((p) => (
                 <BlogCard key={p.id} post={p} />
               ))}
-            </div>
+            </Reveal>
           </div>
         </section>
       )}

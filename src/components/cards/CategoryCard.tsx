@@ -10,8 +10,9 @@ export function CategoryCard({ category }: { category: Category }) {
   return (
     <Link
       href={`/category/${category.slug}`}
-      className="focus-ring group flex flex-col rounded-2xl border border-navy-100 bg-white p-6 card-shadow transition-all duration-200 hover:-translate-y-1 hover:border-gold-200 hover:shadow-xl"
+      className="focus-ring group relative flex flex-col overflow-hidden rounded-2xl border border-navy-100 bg-white p-6 card-shadow transition-all duration-200 hover:-translate-y-1 hover:border-gold-200 hover:shadow-xl"
     >
+      <span className="absolute inset-x-0 top-0 h-1 w-0 bg-gradient-to-r from-gold-400 to-gold-600 transition-all duration-300 group-hover:w-full" />
       <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-navy-900 text-gold-300 transition-colors group-hover:bg-gold-500 group-hover:text-navy-950">
         <CategoryIcon name={category.icon} />
       </div>

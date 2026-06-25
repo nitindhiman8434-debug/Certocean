@@ -5,11 +5,12 @@ import { SITE } from "@/data/site";
 
 export default function Footer() {
   return (
-    <footer className="bg-navy-950 text-white/80">
+    <footer className="relative bg-navy-950 text-white/80">
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-gold-500/60 to-transparent" />
       <div className="container-page py-14 grid grid-cols-1 gap-10 lg:grid-cols-6">
         <div className="lg:col-span-2">
           <Link href="/" className="flex items-center gap-2">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gold-500 text-sm font-bold text-navy-950">
+            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-gold-300 to-gold-600 text-sm font-bold text-navy-950">
               CO
             </span>
             <span className="text-lg font-bold text-white">
@@ -29,13 +30,13 @@ export default function Footer() {
             </p>
           </div>
           <div className="mt-5 flex items-center gap-3">
-            <a href={SITE.social.linkedin} aria-label="LinkedIn" className="focus-ring rounded-full bg-white/10 p-2 hover:bg-gold-500 hover:text-navy-950">
+            <a href={SITE.social.linkedin} aria-label="LinkedIn" className="focus-ring rounded-full bg-white/10 p-2 transition-all duration-200 hover:-translate-y-0.5 hover:bg-gold-500 hover:text-navy-950">
               <Link2 className="h-4 w-4" />
             </a>
-            <a href={SITE.social.facebook} aria-label="Facebook" className="focus-ring rounded-full bg-white/10 p-2 hover:bg-gold-500 hover:text-navy-950">
+            <a href={SITE.social.facebook} aria-label="Facebook" className="focus-ring rounded-full bg-white/10 p-2 transition-all duration-200 hover:-translate-y-0.5 hover:bg-gold-500 hover:text-navy-950">
               <Globe2 className="h-4 w-4" />
             </a>
-            <a href={SITE.social.x} aria-label="X" className="focus-ring rounded-full bg-white/10 p-2 hover:bg-gold-500 hover:text-navy-950">
+            <a href={SITE.social.x} aria-label="X" className="focus-ring rounded-full bg-white/10 p-2 transition-all duration-200 hover:-translate-y-0.5 hover:bg-gold-500 hover:text-navy-950">
               <Hash className="h-4 w-4" />
             </a>
           </div>

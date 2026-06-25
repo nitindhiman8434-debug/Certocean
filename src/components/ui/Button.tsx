@@ -7,13 +7,13 @@ type Size = "md" | "lg";
 
 const variantClasses: Record<Variant, string> = {
   primary:
-    "bg-gold-500 text-navy-950 hover:bg-gold-400 shadow-[0_10px_30px_-8px_rgba(207,147,38,0.55)]",
+    "bg-gradient-to-r from-gold-400 to-gold-600 text-navy-950 shadow-[0_10px_30px_-8px_rgba(207,147,38,0.55)] hover:from-gold-300 hover:to-gold-500 hover:shadow-glow",
   secondary:
-    "bg-navy-900 text-white hover:bg-navy-800",
+    "bg-gradient-to-r from-navy-900 to-navy-800 text-white hover:from-navy-800 hover:to-navy-700",
   ghost:
     "bg-transparent text-navy-900 hover:bg-navy-50",
   "outline-light":
-    "bg-transparent text-white border border-white/30 hover:bg-white/10",
+    "bg-transparent text-white border border-white/30 hover:border-gold-300 hover:bg-white/10",
 };
 
 const sizeClasses: Record<Size, string> = {
@@ -39,7 +39,7 @@ export function Button({
     <Link
       href={href}
       className={cn(
-        "focus-ring inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-200",
+        "focus-ring inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]",
         variantClasses[variant],
         sizeClasses[size],
         className
@@ -61,7 +61,7 @@ export function ButtonAsButton({
   return (
     <button
       className={cn(
-        "focus-ring inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-200",
+        "focus-ring inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]",
         variantClasses[variant],
         sizeClasses[size],
         className

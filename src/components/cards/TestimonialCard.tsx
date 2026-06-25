@@ -3,7 +3,8 @@ import { Testimonial } from "@/data/types";
 
 export function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <figure className="flex h-full flex-col rounded-2xl border border-navy-100 bg-white p-7 card-shadow">
+    <figure className="card-hover group relative flex h-full flex-col overflow-hidden rounded-2xl border border-navy-100 bg-white p-7 card-shadow">
+      <span className="absolute inset-x-0 top-0 h-1 w-0 bg-gradient-to-r from-gold-400 to-gold-600 transition-all duration-300 group-hover:w-full" />
       <Quote className="h-7 w-7 text-gold-300" />
       <blockquote className="mt-4 flex-1 text-navy-700 leading-relaxed">&ldquo;{testimonial.quote}&rdquo;</blockquote>
       <div className="mt-5 flex items-center gap-1">

@@ -27,8 +27,9 @@ export default function FAQPage() {
     <>
       <Script id="faq-page-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <Breadcrumbs items={[{ label: "FAQ" }]} />
-      <section className="bg-navy-gradient py-14">
-        <div className="container-page max-w-3xl text-center">
+      <section className="hero-noise relative overflow-hidden bg-navy-gradient py-14">
+        <div className="absolute inset-0 bg-grid-fade" />
+        <div className="container-page relative max-w-3xl text-center">
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">Frequently Asked Questions</h1>
           <p className="mt-4 text-lg text-white/70">
             Everything you need to know about courses, certification guidance, payments, batches, corporate

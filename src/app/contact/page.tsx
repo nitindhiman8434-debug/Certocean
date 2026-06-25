@@ -21,8 +21,9 @@ export default function ContactPage() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Contact" }]} />
-      <section className="bg-navy-gradient py-14">
-        <div className="container-page max-w-3xl text-center">
+      <section className="hero-noise relative overflow-hidden bg-navy-gradient py-14">
+        <div className="absolute inset-0 bg-grid-fade" />
+        <div className="container-page relative max-w-3xl text-center">
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">Contact CertOcean</h1>
           <p className="mt-4 text-lg text-white/70">
             Questions about a certification, batch, or corporate training? Reach out and our team will respond
@@ -38,7 +39,7 @@ export default function ContactPage() {
             <div className="mt-6 space-y-5">
               {contactDetails.map((item) => (
                 <div key={item.label} className="flex items-start gap-3">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-navy-50 text-navy-700">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gold-50 text-gold-600">
                     <item.icon className="h-5 w-5" />
                   </span>
                   <div>

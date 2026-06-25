@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { Reveal } from "@/components/ui/Reveal";
 
 export function SectionHeading({
   eyebrow,
@@ -16,7 +17,7 @@ export function SectionHeading({
   className?: string;
 }) {
   return (
-    <div
+    <Reveal
       className={cn(
         "max-w-3xl",
         align === "center" ? "mx-auto text-center" : "text-left",
@@ -46,6 +47,6 @@ export function SectionHeading({
           {description}
         </p>
       )}
-    </div>
+    </Reveal>
   );
 }

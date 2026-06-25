@@ -3,6 +3,7 @@ import { BadgeCheck, Globe2, Users2, Building2 } from "lucide-react";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CTASection } from "@/components/sections/CTASection";
+import { Reveal } from "@/components/ui/Reveal";
 import { SITE } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -29,23 +30,26 @@ export default function AboutPage() {
   return (
     <>
       <Breadcrumbs items={[{ label: "About" }]} />
-      <section className="bg-navy-gradient py-16 sm:py-20">
-        <div className="container-page max-w-3xl text-center">
+      <section className="hero-noise relative overflow-hidden bg-navy-gradient py-16 sm:py-20">
+        <div className="absolute inset-0 bg-grid-fade" />
+        <div className="container-page relative max-w-3xl text-center">
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">About CertOcean</h1>
           <p className="mt-5 text-lg text-white/70 leading-relaxed">{SITE.description}</p>
         </div>
       </section>
 
       <section className="border-b border-navy-100 bg-white">
-        <div className="container-page grid grid-cols-2 gap-6 py-10 sm:grid-cols-4">
+        <Reveal className="container-page grid grid-cols-2 gap-6 py-10 sm:grid-cols-4">
           {stats.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <stat.icon className="mx-auto h-6 w-6 text-gold-600" />
+            <div key={stat.label} className="group text-center">
+              <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-gold-50 text-gold-600 transition-colors duration-200 group-hover:bg-gold-500 group-hover:text-white">
+                <stat.icon className="h-5 w-5" />
+              </div>
               <p className="mt-2 text-2xl font-bold text-navy-900">{stat.value}</p>
               <p className="text-xs text-navy-500">{stat.label}</p>
             </div>
           ))}
-        </div>
+        </Reveal>
       </section>
 
       <section className="section-y bg-white">
@@ -71,14 +75,14 @@ export default function AboutPage() {
       <section className="section-y bg-navy-50/40">
         <div className="container-page">
           <SectionHeading eyebrow="What We Stand For" title="Our Values" />
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <Reveal className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((v) => (
-              <div key={v.title} className="rounded-2xl border border-navy-100 bg-white p-6 card-shadow">
+              <div key={v.title} className="card-hover rounded-2xl border border-navy-100 bg-white p-6 card-shadow">
                 <h3 className="font-bold text-navy-900">{v.title}</h3>
                 <p className="mt-2 text-sm text-navy-600">{v.description}</p>
               </div>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 

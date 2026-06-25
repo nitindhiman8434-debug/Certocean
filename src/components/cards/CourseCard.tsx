@@ -3,12 +3,14 @@ import { Clock, Star, Users } from "lucide-react";
 import { Course } from "@/data/types";
 import { getCategoryBySlug } from "@/data/categories";
 import { formatPrice } from "@/lib/utils";
+import { TechIconBadge } from "@/components/ui/TechIconBadge";
 
 export function CourseCard({ course }: { course: Course }) {
   const category = getCategoryBySlug(course.categorySlug);
 
   return (
-    <article className="group flex h-full flex-col rounded-2xl border border-navy-100 bg-white p-6 card-shadow transition-all duration-200 hover:-translate-y-1 hover:shadow-xl">
+    <article className="card-hover group relative flex h-full flex-col overflow-hidden rounded-2xl border border-navy-100 bg-white p-6 card-shadow">
+      <span className="absolute inset-x-0 top-0 h-1 w-0 bg-gradient-to-r from-gold-400 to-gold-600 transition-all duration-300 group-hover:w-full" />
       <div className="flex items-center justify-between gap-2">
         {category && (
           <Link
@@ -23,11 +25,14 @@ export function CourseCard({ course }: { course: Course }) {
         </span>
       </div>
 
-      <h3 className="mt-3 text-lg font-bold text-navy-900 leading-snug">
-        <Link href={`/course/${course.slug}`} className="focus-ring hover:text-navy-700">
-          {course.title}
-        </Link>
-      </h3>
+      <div className="mt-4 flex items-start gap-3">
+        <TechIconBadge course={course} className="transition-colors duration-300 group-hover:border-gold-300 group-hover:bg-gold-50 group-hover:text-gold-700" />
+        <h3 className="text-lg font-bold text-navy-900 leading-snug">
+          <Link href={`/course/${course.slug}`} className="focus-ring hover:text-navy-700">
+            {course.title}
+          </Link>
+        </h3>
+      </div>
 
       <p className="mt-2 text-sm text-navy-600 line-clamp-2">{course.shortDescription}</p>
 

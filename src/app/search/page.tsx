@@ -22,8 +22,9 @@ export default async function SearchPage({
   return (
     <>
       <Breadcrumbs items={[{ label: "Search" }]} />
-      <section className="bg-navy-gradient py-14">
-        <div className="container-page text-center">
+      <section className="hero-noise relative overflow-hidden bg-navy-gradient py-14">
+        <div className="absolute inset-0 bg-grid-fade" />
+        <div className="container-page relative text-center">
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">Search Results</h1>
           <p className="mx-auto mt-4 max-w-2xl text-white/70">
             {q ? (

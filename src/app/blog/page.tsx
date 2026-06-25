@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { BlogCard } from "@/components/cards/BlogCard";
 import { CTASection } from "@/components/sections/CTASection";
+import { Reveal } from "@/components/ui/Reveal";
 import { blogPosts } from "@/data/blog";
 import { SITE } from "@/data/site";
 
@@ -16,8 +17,9 @@ export default function BlogIndexPage() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Blog" }]} />
-      <section className="bg-navy-gradient py-14">
-        <div className="container-page text-center">
+      <section className="hero-noise relative overflow-hidden bg-navy-gradient py-14">
+        <div className="absolute inset-0 bg-grid-fade" />
+        <div className="container-page relative text-center">
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
             Certification Insights &amp; Guides
           </h1>
@@ -29,11 +31,11 @@ export default function BlogIndexPage() {
 
       <section className="section-y bg-white">
         <div className="container-page">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <Reveal className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {blogPosts.map((post) => (
               <BlogCard key={post.id} post={post} />
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 

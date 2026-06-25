@@ -11,8 +11,9 @@ export const metadata: Metadata = {
 
 export default function ThankYouPage() {
   return (
-    <section className="section-y bg-navy-gradient min-h-[60vh] flex items-center">
-      <div className="container-page max-w-xl text-center">
+    <section className="hero-noise section-y relative flex min-h-[60vh] items-center overflow-hidden bg-navy-gradient">
+      <div className="absolute inset-0 bg-grid-fade" />
+      <div className="container-page relative max-w-xl text-center">
         <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gold-500/20">
           <CheckCircle2 className="h-9 w-9 text-gold-400" />
         </div>

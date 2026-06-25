@@ -15,7 +15,9 @@ import {
 } from "lucide-react";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
+import { TechIconBadge } from "@/components/ui/TechIconBadge";
 import { StickyMobileCTA } from "@/components/sections/StickyMobileCTA";
 import { FAQAccordion } from "@/components/sections/FAQAccordion";
 import { CourseCard } from "@/components/cards/CourseCard";
@@ -96,11 +98,18 @@ export default async function CoursePage({
       <section className="relative overflow-hidden bg-navy-gradient">
         <div className="container-page relative grid gap-10 py-14 sm:py-16 lg:grid-cols-3 lg:items-start">
           <div className="lg:col-span-2">
-            <div className="flex flex-wrap items-center gap-3 text-xs font-semibold text-gold-300">
-              {course.certificationBody && (
-                <span className="rounded-full border border-white/15 bg-white/5 px-3 py-1">{course.certificationBody}</span>
-              )}
-              <span className="rounded-full border border-white/15 bg-white/5 px-3 py-1">{course.level}</span>
+            <div className="flex items-center gap-4">
+              <TechIconBadge
+                course={course}
+                className="h-14 w-14 rounded-2xl border-white/15 bg-white/5 text-gold-300"
+                iconClassName="h-7 w-7"
+              />
+              <div className="flex flex-wrap items-center gap-3 text-xs font-semibold text-gold-300">
+                {course.certificationBody && (
+                  <span className="rounded-full border border-white/15 bg-white/5 px-3 py-1">{course.certificationBody}</span>
+                )}
+                <span className="rounded-full border border-white/15 bg-white/5 px-3 py-1">{course.level}</span>
+              </div>
             </div>
             <h1 className="mt-4 text-3xl sm:text-4xl lg:text-[2.6rem] font-extrabold tracking-tight text-white leading-tight">
               {course.title}
@@ -186,14 +195,14 @@ export default async function CoursePage({
       <section className="section-y bg-navy-50/40">
         <div className="container-page">
           <SectionHeading eyebrow="Eligibility" title="Who Should Attend" align="left" />
-          <ul className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <Reveal className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
             {course.whoShouldAttend.map((item) => (
-              <li key={item} className="flex items-start gap-3 rounded-xl border border-navy-100 bg-white p-4">
+              <div key={item} className="flex items-start gap-3 rounded-xl border border-navy-100 bg-white p-4 transition-colors duration-200 hover:border-gold-200">
                 <BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-gold-600" />
                 <span className="text-sm text-navy-700">{item}</span>
-              </li>
+              </div>
             ))}
-          </ul>
+          </Reveal>
         </div>
       </section>
 
@@ -201,13 +210,16 @@ export default async function CoursePage({
       <section className="section-y bg-white">
         <div className="container-page">
           <SectionHeading eyebrow="Skills" title="Skills You'll Gain" align="left" />
-          <div className="mt-8 flex flex-wrap gap-3">
+          <Reveal className="mt-8 flex flex-wrap gap-3">
             {course.skills.map((skill) => (
-              <span key={skill} className="rounded-full bg-navy-900 px-4 py-2 text-sm font-medium text-gold-300">
+              <span
+                key={skill}
+                className="rounded-full bg-gradient-to-r from-navy-900 to-navy-800 px-4 py-2 text-sm font-medium text-gold-300 transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-glow"
+              >
                 {skill}
               </span>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -249,14 +261,17 @@ export default async function CoursePage({
       <section className="section-y bg-navy-900">
         <div className="container-page">
           <SectionHeading eyebrow="Career Outcomes" title="Roles This Certification Unlocks" light align="left" />
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <Reveal className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {course.careerOutcomes.map((role) => (
-              <div key={role} className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-4">
+              <div
+                key={role}
+                className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-gold-400/30"
+              >
                 <Briefcase className="h-5 w-5 shrink-0 text-gold-400" />
                 <span className="text-sm font-medium text-white">{role}</span>
               </div>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -264,10 +279,12 @@ export default async function CoursePage({
       <section className="section-y bg-white">
         <div className="container-page">
           <SectionHeading eyebrow="Training Delivery" title="How You'll Learn" align="left" />
-          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
+          <Reveal className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
             {course.mode.map((mode) => (
-              <div key={mode} className="rounded-2xl border border-navy-100 p-6 card-shadow">
-                <GraduationCap className="h-6 w-6 text-gold-600" />
+              <div key={mode} className="card-hover rounded-2xl border border-navy-100 p-6 card-shadow">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gold-50 text-gold-600">
+                  <GraduationCap className="h-5 w-5" />
+                </div>
                 <h3 className="mt-4 font-bold text-navy-900">{mode}</h3>
                 <p className="mt-2 text-sm text-navy-600">
                   {mode.includes("Live")
@@ -278,7 +295,7 @@ export default async function CoursePage({
                 </p>
               </div>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -287,9 +304,9 @@ export default async function CoursePage({
         <div className="container-page">
           <SectionHeading eyebrow="Schedule" title="Upcoming Batches" align="left" />
           {futureBatches.length > 0 ? (
-            <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <Reveal className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
               {futureBatches.map((batch) => (
-                <div key={batch.startDate} className="flex items-center justify-between rounded-2xl border border-navy-100 bg-white p-5">
+                <div key={batch.startDate} className="flex items-center justify-between rounded-2xl border border-navy-100 bg-white p-5 transition-colors duration-200 hover:border-gold-200">
                   <div className="flex items-center gap-3">
                     <CalendarDays className="h-5 w-5 text-gold-600" />
                     <div>
@@ -304,7 +321,7 @@ export default async function CoursePage({
                   )}
                 </div>
               ))}
-            </div>
+            </Reveal>
           ) : (
             <div className="mt-8 rounded-2xl border border-dashed border-navy-200 bg-white p-8 text-center text-navy-500">
               No upcoming batches are currently scheduled. Talk to an advisor to register interest for the next available batch.
@@ -317,10 +334,10 @@ export default async function CoursePage({
       <section className="section-y bg-white">
         <div className="container-page">
           <SectionHeading eyebrow="Reviews" title="What Learners Say" align="left" />
-          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <Reveal className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
             {reviews.length > 0 ? (
               reviews.map((t) => (
-                <div key={t.id} className="rounded-2xl border border-navy-100 p-6 card-shadow">
+                <div key={t.id} className="card-hover rounded-2xl border border-navy-100 p-6 card-shadow">
                   <div className="flex items-center gap-1">
                     {Array.from({ length: t.rating }).map((_, i) => (
                       <Star key={i} className="h-4 w-4 fill-gold-400 text-gold-400" />
@@ -336,7 +353,7 @@ export default async function CoursePage({
                 Be among the first to share your experience with this program — your review will appear here.
               </div>
             )}
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -355,11 +372,11 @@ export default async function CoursePage({
         <section className="section-y bg-white">
           <div className="container-page">
             <SectionHeading eyebrow="Continue Learning" title="Related Certifications" />
-            <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <Reveal className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {relatedCourses.map((c) => (
                 <CourseCard key={c.id} course={c} />
               ))}
-            </div>
+            </Reveal>
           </div>
         </section>
       )}

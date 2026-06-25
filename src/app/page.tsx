@@ -2,6 +2,8 @@ import Link from "next/link";
 import { ArrowRight, BadgeCheck, Users2, Globe2, GraduationCap, HeadphonesIcon, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/ui/Reveal";
+import { HeroScene } from "@/components/hero/HeroScene";
 import { TrustStrip } from "@/components/sections/TrustStrip";
 import { CTASection } from "@/components/sections/CTASection";
 import { CategoryCard } from "@/components/cards/CategoryCard";
@@ -62,7 +64,9 @@ export default function HomePage() {
               "radial-gradient(circle at 15% 10%, rgba(207,147,38,0.45), transparent 35%), radial-gradient(circle at 85% 30%, rgba(79,120,187,0.5), transparent 40%)",
           }}
         />
-        <div className="container-page relative grid gap-12 py-20 sm:py-24 lg:grid-cols-2 lg:items-center lg:py-32">
+        <div className="absolute inset-0 bg-grid-fade" />
+        <HeroScene className="absolute inset-0 z-0" />
+        <div className="container-page relative z-10 grid gap-12 py-20 sm:py-24 lg:grid-cols-2 lg:items-center lg:py-32">
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold text-gold-300">
               <BadgeCheck className="h-3.5 w-3.5" /> Trusted by 25,000+ learners worldwide
@@ -94,8 +98,8 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="relative">
-            <div className="glass-panel rounded-3xl p-6 sm:p-8">
+          <div className="relative animate-float-slow">
+            <div className="glass-panel glow-shadow rounded-3xl p-6 sm:p-8">
               <div className="flex items-center justify-between">
                 <span className="text-sm font-semibold text-white">Your Certification Dashboard</span>
                 <span className="rounded-full bg-gold-500/20 px-3 py-1 text-xs font-semibold text-gold-300">Live Preview</span>
@@ -142,11 +146,11 @@ export default function HomePage() {
             title="Popular Certification Tracks"
             description="Choose a track aligned to your career goals — each path is built around globally recognized certifications and real job outcomes."
           />
-          <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <Reveal className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {categories.slice(0, 9).map((category) => (
               <CategoryCard key={category.id} category={category} />
             ))}
-          </div>
+          </Reveal>
           <div className="mt-10 text-center">
             <Button href="/courses" variant="ghost" size="md">
               View All Categories <ArrowRight className="h-4 w-4" />
@@ -163,11 +167,11 @@ export default function HomePage() {
             title="In-Demand Certifications"
             description="Hand-picked programs across cybersecurity, cloud, and project management — the certifications employers ask for most."
           />
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <Reveal className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {featured.map((course) => (
               <CourseCard key={course.id} course={course} />
             ))}
-          </div>
+          </Reveal>
           <div className="mt-10 text-center">
             <Button href="/courses" variant="secondary" size="md">
               Browse All {courses.length}+ Courses <ArrowRight className="h-4 w-4" />
@@ -184,10 +188,10 @@ export default function HomePage() {
             title="Your Certification Pathway"
             description="Not sure where to start? Follow a guided progression from foundational to leadership-level certifications."
           />
-          <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-4">
+          <Reveal className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-4">
             {pathway.map((stage, i) => (
-              <div key={stage.stage} className="relative rounded-2xl border border-navy-100 bg-white p-6 card-shadow">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-navy-900 text-sm font-bold text-gold-300">
+              <div key={stage.stage} className="card-hover relative rounded-2xl border border-navy-100 bg-white p-6 card-shadow">
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-navy-700 to-navy-950 text-sm font-bold text-gold-300">
                   {i + 1}
                 </span>
                 <h3 className="mt-4 text-lg font-bold text-navy-900">{stage.stage}</h3>
@@ -207,7 +211,7 @@ export default function HomePage() {
                 </ul>
               </div>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -220,15 +224,20 @@ export default function HomePage() {
             light
             description="We combine instructor-led training, advisor guidance, and corporate-grade delivery to make certification success achievable — not just theoretical."
           />
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <Reveal className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {whyChoose.map((item) => (
-              <div key={item.title} className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                <item.icon className="h-7 w-7 text-gold-400" />
+              <div
+                key={item.title}
+                className="group rounded-2xl border border-white/10 bg-white/5 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold-400/30 hover:bg-white/[0.08]"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gold-500/10 text-gold-400 transition-colors group-hover:bg-gold-500 group-hover:text-navy-950">
+                  <item.icon className="h-6 w-6" />
+                </div>
                 <h3 className="mt-4 font-bold text-white">{item.title}</h3>
                 <p className="mt-2 text-sm text-white/60">{item.description}</p>
               </div>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -261,15 +270,16 @@ export default function HomePage() {
               </Button>
             </div>
           </div>
-          <div className="rounded-3xl bg-navy-gradient p-8 lg:p-10">
-            <div className="grid grid-cols-2 gap-4">
+          <div className="relative overflow-hidden rounded-3xl bg-navy-gradient p-8 lg:p-10">
+            <div className="absolute inset-0 bg-grid-fade" />
+            <div className="relative grid grid-cols-2 gap-4">
               {[
                 { value: "300+", label: "Corporate Clients" },
                 { value: "40+", label: "Countries Reached" },
                 { value: "150+", label: "Certification Programs" },
                 { value: "25,000+", label: "Learners Trained" },
               ].map((stat) => (
-                <div key={stat.label} className="rounded-2xl bg-white/5 p-5 text-center">
+                <div key={stat.label} className="rounded-2xl border border-white/10 bg-white/5 p-5 text-center">
                   <p className="text-2xl font-bold text-white">{stat.value}</p>
                   <p className="mt-1 text-xs text-white/60">{stat.label}</p>
                 </div>
@@ -287,11 +297,11 @@ export default function HomePage() {
             title="What Our Learners Say"
             description="Real outcomes from professionals who advanced their careers through CertOcean."
           />
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <Reveal className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {testimonials.map((t) => (
               <TestimonialCard key={t.id} testimonial={t} />
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -303,11 +313,11 @@ export default function HomePage() {
             title="Insights to Guide Your Certification Journey"
             description="Practical comparisons, guides, and certification advice from our training experts."
           />
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <Reveal className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {latestPosts.map((post) => (
               <BlogCard key={post.id} post={post} />
             ))}
-          </div>
+          </Reveal>
           <div className="mt-10 text-center">
             <Button href="/blog" variant="ghost" size="md">
               Visit the Blog <ArrowRight className="h-4 w-4" />

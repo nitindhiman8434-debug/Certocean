@@ -37,6 +37,7 @@
 
   --shadow-soft: 0 20px 50px -20px rgb(10 23 48 / 0.25);
   --shadow-card: 0 8px 30px -8px rgb(10 23 48 / 0.18);
+  --shadow-glow: 0 0 0 1px rgb(226 171 53 / 0.25), 0 20px 60px -20px rgb(226 171 53 / 0.35);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -92,5 +93,62 @@ body {
 
   .focus-ring {
     @apply outline-none focus-visible:ring-2 focus-visible:ring-gold-400 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900;
+  }
+
+  .glow-shadow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .text-gradient-light {
+    background: linear-gradient(90deg, #ffffff, #b3c9ea);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-grid-fade {
+    background-image:
+      linear-gradient(rgb(255 255 255 / 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(255 255 255 / 0.06) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: radial-gradient(60% 60% at 50% 35%, black, transparent);
+  }
+
+  .hero-noise::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-slow {
+    animation: float 9s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-float-slow {
+    animation: none;
   }
 }

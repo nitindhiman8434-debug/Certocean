@@ -21,8 +21,9 @@ export default function AdvisorPage() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Certification Advisor" }]} />
-      <section className="bg-navy-gradient py-14">
-        <div className="container-page max-w-3xl text-center">
+      <section className="hero-noise relative overflow-hidden bg-navy-gradient py-14">
+        <div className="absolute inset-0 bg-grid-fade" />
+        <div className="container-page relative max-w-3xl text-center">
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
             Talk to a Certification Advisor
           </h1>
@@ -40,7 +41,9 @@ export default function AdvisorPage() {
             <ul className="mt-6 space-y-4">
               {benefits.map((b) => (
                 <li key={b} className="flex items-start gap-3">
-                  <BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-gold-600" />
+                  <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-gold-50 text-gold-600">
+                    <BadgeCheck className="h-4 w-4" />
+                  </span>
                   <span className="text-sm text-navy-700">{b}</span>
                 </li>
               ))}
