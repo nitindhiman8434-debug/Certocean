@@ -24,6 +24,12 @@ export function CourseExplorer({
   const [categorySlug, setCategorySlug] = useState<string>(initialCategorySlug ?? "all");
   const [level, setLevel] = useState<Level | "all">("all");
 
+  const categoryNameBySlug = useMemo(() => {
+    const map = new Map<string, string>();
+    for (const c of categories) map.set(c.slug, c.name);
+    return map;
+  }, [categories]);
+
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     return courses.filter((course) => {
@@ -34,13 +40,14 @@ export function CourseExplorer({
         course.title,
         course.certificationBody ?? "",
         course.shortDescription,
+        categoryNameBySlug.get(course.categorySlug) ?? "",
         ...course.skills,
       ]
         .join(" ")
         .toLowerCase();
       return haystack.includes(q);
     });
-  }, [courses, categorySlug, level, query]);
+  }, [courses, categorySlug, level, query, categoryNameBySlug]);
 
   return (
     <div>

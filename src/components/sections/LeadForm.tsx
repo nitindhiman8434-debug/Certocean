@@ -13,11 +13,36 @@ export function LeadForm({
 }) {
   const router = useRouter();
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setError(null);
     setSubmitting(true);
-    router.push("/thank-you");
+
+    const formData = new FormData(e.currentTarget);
+    const payload = {
+      fullName: formData.get("fullName")?.toString() ?? "",
+      email: formData.get("email")?.toString() ?? "",
+      phone: formData.get("phone")?.toString() || undefined,
+      interest: formData.get("interest")?.toString() || undefined,
+      company: formData.get("company")?.toString() || undefined,
+      teamSize: formData.get("teamSize")?.toString() || undefined,
+      message: formData.get("message")?.toString() || undefined,
+    };
+
+    try {
+      const res = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error("Submission failed");
+      router.push("/thank-you");
+    } catch {
+      setError("We couldn't submit your request. Please try again or email us directly.");
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -117,6 +142,8 @@ export function LeadForm({
           placeholder="Tell us about your goals or questions..."
         />
       </div>
+
+      {error && <p className="text-sm font-medium text-red-600">{error}</p>}
 
       <ButtonAsButton type="submit" variant="primary" size="lg" className="w-full justify-center" disabled={submitting}>
         {submitting ? "Submitting..." : submitLabel}
